@@ -675,3 +675,13 @@ mat-progress-bar {
     height: 100%;
   }
 }
+
+.remove, .rem, .btn, .mat-nav-list a.btn {
+  color: map-get($foreground, disabled-button);
+  @include dark {
+    color: map-get($dark-foreground, disabled-button);
+  }
+  &:hover {
+    color: mat-color($app-accent, 800)
+  }
+}
