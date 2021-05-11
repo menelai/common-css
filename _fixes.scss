@@ -1,8 +1,17 @@
+@import '~@angular/material/theming';
 @import "mixins";
 
 $greytext: #535b63 !default;
 $greytext-dark: #cbcbcb !default;
 $dark: #2f4050 !default;
+
+$foreground: map-get($app-theme, foreground);
+$background: map-get($app-theme, background);
+
+$dark-foreground: map-get($app-dark-theme, foreground);
+$dark-background: map-get($app-dark-theme, background);
+
+$app-yellow:  mat-palette($mat-amber) !default;
 
 @include dark {
   .mat-card, .mat-tree {
@@ -181,7 +190,7 @@ mat-toolbar {
   @include phone {
     width: 300px;
   }
-
+  background: mat-color($app-primary, 600);
   .mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
     color: rgba(white, 0.77);
 
@@ -195,6 +204,10 @@ mat-toolbar {
   }
 
   .expanded {
+    background: mat-color($app-primary, 700);
+    &:before {
+      background: mat-color($app-primary, 900);
+    }
     .mat-nav-list {
       padding-top: 0;
       padding-bottom: 8px;
@@ -345,6 +358,25 @@ body.printing {
   }
 }
 
+.left-column, .hightlightactive {
+  .active {
+    font-weight: 500;
+    background: map-get($background, background);
+    @include dark {
+      background: map-get($dark-background, background);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+      top: 0;
+      background: mat-color($app-accent, 500);
+    }
+  }
+}
+
 .mat-accordion {
   @include phone {
     margin-left: -16px;
@@ -466,6 +498,18 @@ textarea {
   }
 }
 
+.mat-snack-bar-container {
+  &.error {
+    background: mat-color($app-warn, A700);
+    color:white;
+  }
+
+  &.warning {
+    background: mat-color($app-yellow, A700);
+    color:white;
+  }
+}
+
 .host {
   @include phone {
     flex: 1;
@@ -514,6 +558,10 @@ textarea {
       }
     }
   }
+}
+
+.warn {
+  color: mat-color($app-yellow, 900);
 }
 
 .errored {
