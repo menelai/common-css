@@ -1,0 +1,16 @@
+{
+  "name": "@kovalenko/common-css",
+  "version": "0.0.4",
+  "scripts": {
+    
+  },
+  "peerDependencies": {
+    "@angular/material": ">=11.0.0"
+  },
+  "devDependencies": {
+    
+  },
+  "main": "_common.scss",
+  "author": "Kovalenko",
+  "license": "MIT"
+}

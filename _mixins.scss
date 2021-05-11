@@ -1,0 +1,37 @@
+$breakpoint: 800px;
+
+@mixin phone {
+  @media screen and (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint + 1px}) {
+    @content;
+  }
+}
+
+@mixin dark {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin light {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
+@mixin phone-portrait {
+  @media (max-width: #{$breakpoint}) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin phone-landscape {
+  @media (max-width: #{$breakpoint}) and (orientation: landscape) {
+    @content;
+  }
+}
