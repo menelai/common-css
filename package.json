@@ -1,14 +1,14 @@
 {
   "name": "@kovalenko/common-css",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
-    
+    "prepare": "husky install"
   },
   "peerDependencies": {
     "@angular/material": ">=11.0.0"
   },
   "devDependencies": {
-    
+    "husky": "^6.0.0"
   },
   "main": "_common.scss",
   "author": "Kovalenko",

@@ -1,5 +1,9 @@
 @import "mixins";
 
+$greytext: #535b63 !default;
+$greytext-dark: #cbcbcb !default;
+$dark: #2f4050 !default;
+
 @include dark {
   .mat-card, .mat-tree {
     background: #1a1a1a;
@@ -100,10 +104,6 @@ body {
     }
   }
 
-  .mat-card {
-    // border-radius: 0;
-  }
-
   @include phone {
     .mat-card {
       border-radius: 8px;
@@ -181,7 +181,7 @@ mat-toolbar {
   @include phone {
     width: 300px;
   }
-  
+
   .mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
     color: rgba(white, 0.77);
 
@@ -400,9 +400,9 @@ body.printing {
 }
 
 .greytext, a.greytext {
-  color: #535b63;
+  color: $greytext;
   @include dark {
-    color: #cbcbcb;
+    color: $greytext-dark;
   }
 }
 
