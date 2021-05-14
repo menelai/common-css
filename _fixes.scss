@@ -87,12 +87,18 @@ body {
     }
   }
 
-  .mat-drawer-container {
-    @include phone {
-      padding-top: 56px;
+  @include phone {
+    .mat-drawer-container {
+      padding-top: 0;
       min-height: 100vh;
       min-height: fill-available;
       display: flex;
+    }
+
+    .mat-toolbar {
+      + .mat-drawer-container {
+        padding-top: 56px;
+      }
     }
   }
 
