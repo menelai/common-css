@@ -1,4 +1,6 @@
 @import "mixins";
+$maxPixels: 40 !default;
+
 div {
   position: relative;
 }
@@ -120,13 +122,13 @@ p {
   text-align: right;
 }
 
-@for $i from 1 through 100 {
+@for $i from 1 through $maxPixels {
   .fz#{$i} {
     font-size: #{$i}px;
   }
 }
 
-@for $i from 1 through 100 {
+@for $i from 1 through $maxPixels {
   .mt-#{$i} {
     margin-top: -#{$i}px;
   }
@@ -177,47 +179,13 @@ p {
   }
 }
 
-@for $i from 1 through 200 {
-  .split#{$i}:not(.c):not(.ws-c):not(.ss-c) {
-    >*:not(:first-child) {
-      padding-left:#{$i*1/2}px;
-    }
-    >*:not(:last-child) {
-      padding-right:#{$i*1/2}px;
-    }
-  }
-
-  .space#{$i}:not(.c):not(.ws-c):not(.ss-c) {
-    >*:not(:first-child) {
-      margin-left:#{$i*1/2}px;
-    }
-    >*:not(:last-child) {
-      margin-right:#{$i*1/2}px;
-    }
-  }
-
-  .c {
-    &.split#{$i} {
-      >*:not(:first-child) {
-        padding-top:#{$i*1/2}px;
-      }
-      >*:not(:last-child) {
-        padding-bottom:#{$i*1/2}px;
-      }
-    }
-
-    &.space#{$i} {
-      >*:not(:first-child) {
-        margin-top:#{$i*1/2}px;
-      }
-      >*:not(:last-child) {
-        margin-bottom:#{$i*1/2}px;
-      }
-    }
+@for $i from 1 through $maxPixels {
+  .gap#{$i} {
+    gap: #{$i*1}px;
   }
 
   .lh#{$i} {
-    line-height:#{$i*1}px;
+    line-height: #{$i*1}px;
   }
 }
 
@@ -375,16 +343,18 @@ p {
     align-items: flex-start;
   }
 
-  @for $i from 1 through 90 {
+  @for $i from 1 through $maxPixels {
     .ss-lh#{$i} {
       line-height:#{$i*1}px;
     }
     .ss-fz#{$i} {
       font-size: #{$i}px;
     }
-  }
 
-  @for $i from 1 through 100 {
+    .ss-gap#{$i} {
+      gap: #{$i*1}px;
+    }
+
     .ss-mt#{$i} {
       margin-top: #{$i}px;
     }
@@ -422,78 +392,12 @@ p {
     }
   }
 
-  @for $i from 0 through 100 {
-    /*.ss-split#{$i}:not(.c) {
-      >*:not(:first-child) {
-        padding-left:#{$i*1/2}px;
-      }
-      >*:not(:last-child) {
-        padding-right:#{$i*1/2}px;
-      }
-    }*/
-
-    .ss-space#{$i}:not(.c) {
-      >*:not(:first-child) {
-        margin-left:#{$i*1/2}px;
-      }
-      >*:not(:last-child) {
-        margin-right:#{$i*1/2}px;
-      }
-    }
-
-    /*.ss-c.split#{$i}, .ss-c.ss-split#{$i} {
-      >*:not(:first-child) {
-        padding-top:#{$i*1/2}px;
-        padding-left:0;
-      }
-      >*:not(:last-child) {
-        padding-bottom:#{$i*1/2}px;
-        padding-right:0;
-      }
-    }*/
-
-    .ss-c.space#{$i}, .ss-c.ss-space#{$i} {
-      >*:not(:first-child) {
-        margin-top:#{$i*1/2}px;
-        margin-left:0;
-      }
-      >*:not(:last-child) {
-        margin-bottom:#{$i*1/2}px;
-        margin-right:0;
-      }
-    }
-  }
-
   .ss-cr {
     flex-direction: column-reverse;
   }
 
   .ss-rr {
     flex-direction: row-reverse;
-
-    @for $i from 2 through 100 {
-      /*&.ss-split#{$i} {
-        > *:not(:first-child) {
-          padding-right: #{$i*1/2}px;
-          padding-left: 0;
-        }
-        > *:not(:last-child) {
-          padding-left: #{$i*1/2}px;
-          padding-right: 0;
-        }
-      }*/
-
-      &.ss-space#{$i} {
-        > *:not(:first-child) {
-          margin-left: 0;
-          margin-right: #{$i*1/2}px;
-        }
-        > *:not(:last-child) {
-          margin-left: #{$i*1/2}px;
-          margin-right: 0;
-        }
-      }
-    }
   }
 
   .ss-flex1 {
@@ -571,16 +475,18 @@ p {
     align-items: flex-start;
   }
 
-  @for $i from 1 through 90 {
+  @for $i from 1 through $maxPixels {
     .ws-lh#{$i} {
       line-height:#{$i*1}px;
     }
     .ws-fz#{$i} {
       font-size: #{$i}px;
     }
-  }
 
-  @for $i from 1 through 100 {
+    .ws-gap#{$i} {
+      gap: #{$i*1}px;
+    }
+
     .ws-mt#{$i} {
       margin-top: #{$i}px;
     }
@@ -618,78 +524,12 @@ p {
     }
   }
 
-  @for $i from 0 through 100 {
-    /*.ws-split#{$i}:not(.c) {
-      >*:not(:first-child) {
-        padding-left:#{$i*1/2}px;
-      }
-      >*:not(:last-child) {
-        padding-right:#{$i*1/2}px;
-      }
-    }*/
-
-    .ws-space#{$i}:not(.c) {
-      >*:not(:first-child) {
-        margin-left:#{$i*1/2}px;
-      }
-      >*:not(:last-child) {
-        margin-right:#{$i*1/2}px;
-      }
-    }
-
-    /*.ws-c.split#{$i}, .ws-c.ws-split#{$i} {
-      >*:not(:first-child) {
-        padding-top:#{$i*1/2}px;
-        padding-left:0;
-      }
-      >*:not(:last-child) {
-        padding-bottom:#{$i*1/2}px;
-        padding-right:0;
-      }
-    }*/
-
-    .ws-c.space#{$i}, .ws-c.ws-space#{$i} {
-      >*:not(:first-child) {
-        margin-top:#{$i*1/2}px;
-        margin-left:0;
-      }
-      >*:not(:last-child) {
-        margin-bottom:#{$i*1/2}px;
-        margin-right:0;
-      }
-    }
-  }
-
   .ws-cr {
     flex-direction: column-reverse;
   }
 
   .ws-rr {
     flex-direction: row-reverse;
-
-    @for $i from 2 through 100 {
-      /*&.ws-split#{$i} {
-        > *:not(:first-child) {
-          padding-right: #{$i*1/2}px;
-          padding-left: 0;
-        }
-        > *:not(:last-child) {
-          padding-left: #{$i*1/2}px;
-          padding-right: 0;
-        }
-      }*/
-
-      &.ws-space#{$i} {
-        > *:not(:first-child) {
-          margin-left: 0;
-          margin-right: #{$i*1/2}px;
-        }
-        > *:not(:last-child) {
-          margin-left: #{$i*1/2}px;
-          margin-right: 0;
-        }
-      }
-    }
   }
 
   .ws-flex1 {
