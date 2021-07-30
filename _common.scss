@@ -1,5 +1,6 @@
 @import "mixins";
 $maxPixels: 40 !default;
+$maxGap: 20 !default;
 
 div {
   position: relative;
@@ -179,11 +180,13 @@ p {
   }
 }
 
-@for $i from 1 through $maxPixels {
+@for $i from 1 through $maxGap {
   .gap#{$i} {
     gap: #{$i*1}px;
   }
+}
 
+@for $i from 1 through $maxPixels {
   .lh#{$i} {
     line-height: #{$i*1}px;
   }
@@ -343,16 +346,18 @@ p {
     align-items: flex-start;
   }
 
+  @for $i from 1 through $maxGap {
+    .ss-gap#{$i} {
+      gap: #{$i*1}px;
+    }
+  }
+
   @for $i from 1 through $maxPixels {
     .ss-lh#{$i} {
       line-height:#{$i*1}px;
     }
     .ss-fz#{$i} {
       font-size: #{$i}px;
-    }
-
-    .ss-gap#{$i} {
-      gap: #{$i*1}px;
     }
 
     .ss-mt#{$i} {
@@ -475,16 +480,18 @@ p {
     align-items: flex-start;
   }
 
+  @for $i from 1 through $maxGap {
+    .ws-gap#{$i} {
+      gap: #{$i*1}px;
+    }
+  }
+
   @for $i from 1 through $maxPixels {
     .ws-lh#{$i} {
       line-height:#{$i*1}px;
     }
     .ws-fz#{$i} {
       font-size: #{$i}px;
-    }
-
-    .ws-gap#{$i} {
-      gap: #{$i*1}px;
     }
 
     .ws-mt#{$i} {
