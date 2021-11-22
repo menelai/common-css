@@ -691,3 +691,19 @@ mat-progress-bar {
     color: mat-color($app-accent, 800)
   }
 }
+
+body {
+  .mat-mini-fab, .mat-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    >.mat-button-wrapper {
+      display: block;
+      >mat-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
