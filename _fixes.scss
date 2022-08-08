@@ -1,5 +1,14 @@
 @import '~@angular/material/theming';
 @import "mixins";
+@use "@angular/material" as mat;
+
+$use-dark-theme: true !default;
+
+$app-primary: mat.define-palette(mat.$light-blue-palette, 900, 700, 900) !default;
+$app-accent:  mat.define-palette(mat.$lime-palette, 500, 100, 700) !default;
+$app-warn:    mat.define-palette(mat.$red-palette) !default;
+
+$app-dark-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn) !default;
 
 $greytext: #535b63 !default;
 $greytext-dark: #cbcbcb !default;
@@ -13,36 +22,38 @@ $dark-background: map-get($app-dark-theme, background);
 
 $app-yellow:  mat-palette($mat-amber) !default;
 
-@include dark {
-  .mat-card, .mat-tree {
-    background: #1a1a1a;
-  }
-
-  .mat-card {
-    .mat-card {
-      background: #2a2a2a;
+@if $use-dark-theme {
+  @include dark {
+    .mat-card, .mat-tree {
+      background: #1a1a1a;
     }
-  }
 
-  .mat-expansion-panel {
-    background: #242424;
-  }
-  .mat-form-field.mat-focused .mat-form-field-ripple {
-    background: map-get($dark-foreground, base);
-  }
-  .mat-form-field.mat-focused .mat-form-field-label {
-    color: map-get($dark-foreground, base);
-  }
-  .mat-input-element {
-    caret-color: white;
-  }
+    .mat-card {
+      .mat-card {
+        background: #2a2a2a;
+      }
+    }
 
-  .mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
-    color: white;
-  }
+    .mat-expansion-panel {
+      background: #242424;
+    }
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+      background: map-get($dark-foreground, base);
+    }
+    .mat-form-field.mat-focused .mat-form-field-label {
+      color: map-get($dark-foreground, base);
+    }
+    .mat-input-element {
+      caret-color: white;
+    }
 
-  .mat-drawer-backdrop.mat-drawer-shown {
-    background-color: rgba(black, 0.6);
+    .mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+      color: white;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: rgba(black, 0.6);
+    }
   }
 }
 
@@ -242,8 +253,10 @@ mat-toolbar {
 
   ::-webkit-scrollbar-track {
     background: #b1b3b5;
-    @include dark {
-      background: black;
+    @if $use-dark-theme {
+      @include dark {
+        background: black;
+      }
     }
   }
 
@@ -368,8 +381,10 @@ body.printing {
   .active {
     font-weight: 500;
     background: map-get($background, background);
-    @include dark {
-      background: map-get($dark-background, background);
+    @if $use-dark-theme {
+      @include dark {
+        background: map-get($dark-background, background);
+      }
     }
     &:after {
       content: '';
@@ -439,8 +454,10 @@ body.printing {
 
 .greytext, a.greytext {
   color: $greytext;
-  @include dark {
-    color: $greytext-dark;
+  @if $use-dark-theme {
+    @include dark {
+      color: $greytext-dark;
+    }
   }
 }
 
@@ -483,9 +500,11 @@ textarea {
   white-space: pre-wrap;
 }
 
-.mat-menu-panel {
-  @include dark {
-    color: white;
+@if $use-dark-theme {
+  .mat-menu-panel {
+    @include dark {
+      color: white;
+    }
   }
 }
 
@@ -684,8 +703,10 @@ mat-progress-bar {
 
 .remove, .rem, .btn, .mat-nav-list a.btn {
   color: map-get($foreground, disabled-button);
-  @include dark {
-    color: map-get($dark-foreground, disabled-button);
+  @if $use-dark-theme {
+    @include dark {
+      color: map-get($dark-foreground, disabled-button);
+    }
   }
   &:hover {
     color: mat-color($app-accent, 800)
