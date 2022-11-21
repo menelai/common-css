@@ -1,8 +1,6 @@
 @use "@angular/material" as mat;
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 @import "mixins";
-
-$use-dark-theme: true !default;
 
 $app-primary: mat.define-palette(mat.$light-blue-palette, 900, 700, 900) !default;
 $app-accent:  mat.define-palette(mat.$lime-palette, 500, 100, 700) !default;
@@ -22,38 +20,95 @@ $dark-background: map-get($app-dark-theme, background);
 
 $app-yellow:  mat-palette($mat-amber) !default;
 
-@if $use-dark-theme {
-  @include dark {
-    .mat-card, .mat-tree {
-      background: #1a1a1a;
-    }
+:root {
+  --mdc-typography-button-letter-spacing: normal;
+  --mdc-typography-subtitle1-letter-spacing: normal;
+  --mdc-typography-body1-letter-spacing: normal;
+}
 
-    .mat-card {
-      .mat-card {
-        background: #2a2a2a;
+.mat-mdc-form-field-infix {
+  min-height: unset;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.mat-mdc-form-field .mat-mdc-text-field-wrapper .mat-mdc-floating-label {
+  top: 18px;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  --mat-mdc-form-field-label-transform: translateY( -24.75px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75));
+}
+
+.mdc-line-ripple, .mat-mdc-form-field-flex {
+  position: static;
+}
+
+@include dark {
+  .mdc-text-field .mdc-text-field__input {
+    caret-color: map-get($dark-foreground, base);
+  }
+  .mat-mdc-card, .mat-mdc-tree {
+    --mdc-elevated-card-container-color: #1a1a1a;
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #2a2a2a;
+  }
+
+  .mdc-text-field--disabled.mdc-text-field--filled {
+    background-color: #2a2a2a;
+  }
+
+  .mat-mdc-card {
+    .mat-mdc-card {
+      background-color: #2a2a2a;
+
+      .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        background-color: #3a3a3a;
+      }
+
+      .mdc-text-field--disabled.mdc-text-field--filled {
+        background-color: #3a3a3a;
       }
     }
+  }
 
-    .mat-expansion-panel {
-      background: #242424;
-    }
-    .mat-form-field.mat-focused .mat-form-field-ripple {
-      background: map-get($dark-foreground, base);
-    }
-    .mat-form-field.mat-focused .mat-form-field-label {
-      color: map-get($dark-foreground, base);
-    }
-    .mat-input-element {
-      caret-color: white;
-    }
+  .mat-expansion-panel {
+    background-color: #242424;
+  }
 
-    .mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
-      color: white;
-    }
+  .mdc-text-field--filled .mdc-line-ripple::after {
+    border-bottom-color: map-get($dark-foreground, base);
+  }
 
-    .mat-drawer-backdrop.mat-drawer-shown {
-      background-color: rgba(black, 0.6);
+
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused {
+    .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+      border-color: map-get($dark-foreground, base);
     }
+  }
+
+  .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: map-get($dark-foreground, base);
+  }
+  .mat-mdc-input-element {
+    caret-color: white;
+  }
+
+  .mat-mdc-button.mat-primary {
+    --mdc-text-button-label-text-color: white;
+  }
+
+  .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgba(black, 0.6);
+  }
+
+  mat-hint {
+    color: rgba(white, 0.6);
   }
 }
 
@@ -76,14 +131,38 @@ html, body {
   box-sizing: border-box;
 }
 
+.mat-mdc-icon-button.mat-mdc-button-base {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  .mat-mdc-button-touch-target {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 body {
   line-height: 1.5;
   font-size: 16px;
   margin: 0;
   font-family: 'Roboto', sans-serif;
 
+  @supports (top: max(0%)) {
+    .mdc-text-field--outlined {
+      padding-right: max(8px, var(--mdc-shape-small, 4px));
+      padding-left: max(8px, var(--mdc-shape-small, 4px));
+    }
 
-  .mat-tooltip {
+    .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+      width: max(4px, var(--mdc-shape-small, 4px));
+    }
+
+    .mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper {
+      padding: 0 8px;
+    }
+  }
+
+  .mat-mdc-tooltip {
     font-size: 12px;
   }
 
@@ -131,27 +210,25 @@ body {
   }
 
   @include phone {
-    .mat-card {
+    .mat-mdc-card {
       border-radius: 8px;
     }
   }
 
-  td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  td.mat-mdc-cell, td.mat-mdc-footer-cell, th.mat-mdc-header-cell {
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 16px;
   }
 
-  .mat-dialog-actions {
-    margin-bottom: -16px;
-    margin-left: -8px;
-    margin-right: -8px;
+  .mat-mdc-dialog-actions {
+    padding: 8px 20px 16px;
     > * + * {
       margin-left: 16px;
     }
   }
 
-  .mat-card-title {
+  .mat-mdc-card-title {
     font-size: 16px;
   }
 
@@ -161,10 +238,12 @@ body {
       padding-left: 16px;
     }
   }
-
+  /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
+  /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
   .mat-checkbox-layout {
     @include phone {
       display: flex;
+      /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
       .mat-checkbox-label {
         width: 0;
         flex: 1;
@@ -174,15 +253,15 @@ body {
     }
   }
 
-  .mat-select-panel {
+  .mat-mdc-select-panel {
     max-height: 400px;
   }
-
-  .mat-card-subtitle, .mat-card-content, .mat-expansion-panel-content, .mat-expansion-panel-header, .mat-dialog-title, .mat-tab-label, .mat-tab-link {
+  /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
+  .mat-mdc-card-subtitle, .mat-mdc-card-content, .mat-expansion-panel-content, .mat-expansion-panel-header, .mat-mdc-dialog-title, .mat-tab-label, .mat-mdc-tab-link {
     font-size: 16px;
     line-height: 1.5;
   }
-
+  /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
   .mat-tab-label {
     padding: 0 16px;
   }
@@ -208,7 +287,7 @@ mat-toolbar {
     width: 300px;
   }
   background: mat-color($app-primary, 600);
-  .mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item {
+  .mat-mdc-list .mat-mdc-list-item, .mat-mdc-nav-list .mat-mdc-list-item, .mat-mdc-selection-list .mat-mdc-list-item {
     color: rgba(white, 0.77);
 
     &.active {
@@ -220,21 +299,38 @@ mat-toolbar {
     }
   }
 
+  .mdc-list-item {
+    padding: 0;
+  }
+
+  .mat-mdc-list-item .mdc-list-item__content {
+    padding-left: 16px;
+  }
+
   .expanded {
     background: mat-color($app-primary, 700);
     &:before {
       background: mat-color($app-primary, 900);
     }
-    .mat-nav-list {
+    .mat-mdc-nav-list {
       padding-top: 0;
       padding-bottom: 8px;
-      .mat-list-item .mat-list-item-content {
+      .mat-mdc-list-item .mdc-list-item__content {
         padding-left: 32px;
       }
     }
   }
 
-  button {
+  .mdc-list-item__primary-text {
+    color: inherit;
+  }
+
+  /*@include dark {
+    .mat-mdc-button.mat-unthemed {
+      --mdc-text-button-label-text-color: rgba(white, 0.77);
+    }
+  }*/
+  .mat-mdc-button:not(:disabled) {
     color: rgba(white, 0.77);
   }
 }
@@ -253,10 +349,8 @@ mat-toolbar {
 
   ::-webkit-scrollbar-track {
     background: #b1b3b5;
-    @if $use-dark-theme {
-      @include dark {
-        background: black;
-      }
+    @include dark {
+      background: black;
     }
   }
 
@@ -281,7 +375,7 @@ mat-toolbar {
     display: flex;
     >mat-card {
       >mat-card-content {
-        margin: 0 -16px;
+        padding: 0;
       }
     }
   }
@@ -296,11 +390,16 @@ mat-toolbar {
 }
 
 body {
-  .mat-nav-list .mat-list-item {
+  .mdc-list-item.mdc-list-item--with-one-line {
     height: auto;
-    .mat-list-item-content {
+  }
+
+  .mat-mdc-nav-list .mat-mdc-list-item {
+    height: auto;
+    .mdc-list-item__content {
       padding-top: 8px;
       padding-bottom: 8px;
+      padding-right: 16px;
     }
 
     &.active {
@@ -320,14 +419,19 @@ body {
 }
 
 .rmb {
-  &.mat-icon-button {
-    height: 32px;
-    width: 32px;
-    line-height: 32px;
+  &.mat-mdc-icon-button {
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    padding: 0;
     .mat-icon {
       width: 32px;
       height: 32px;
       line-height: 32px;
+    }
+    .mat-mdc-button-touch-target {
+      width: 36px;
+      height: 36px;
     }
   }
 
@@ -381,10 +485,8 @@ body.printing {
   .active {
     font-weight: 500;
     background: map-get($background, background);
-    @if $use-dark-theme {
-      @include dark {
-        background: map-get($dark-background, background);
-      }
+    @include dark {
+      background: map-get($dark-background, background);
     }
     &:after {
       content: '';
@@ -411,41 +513,31 @@ body.printing {
   }
 }
 
-.b18.mat-icon-button {
+.b18.mat-mdc-icon-button {
   width: 18px;
   height: 18px;
   line-height: 18px;
+  padding: 0;
   .mat-icon {
     width: 18px;
     height: 18px;
     line-height: 18px;
     font-size: 15px;
   }
+  .mat-mdc-button-touch-target {
+    width: 18px;
+    height: 18px;
+  }
 }
 
-.mat-slide-toggle.mat-slide-toggle-small {
-  height: 18px;
-  line-height: 18px;
-
-  .mat-slide-toggle-thumb-container, .mat-slide-toggle-thumb {
-    width: 14px;
-    height: 14px;
-  }
-  .mat-slide-toggle-bar {
-    height: 8px;
-    width: 24px;
-  }
-
-  &.mat-checked .mat-slide-toggle-thumb-container {
-    transform: translate3d(10px, 0, 0);
-  }
-
-  .mat-slide-toggle-ripple {
-    width: 24px;
-    height: 24px;
-    top: calc(50% - 12px);
-    left: calc(50% - 12px);
-  }
+.mat-mdc-slide-toggle.mat-slide-toggle-small {
+  --mdc-switch-track-width: 24px;
+  --mdc-switch-track-height: 8px;
+  --mdc-switch-unselected-icon-size: 12px;
+  --mdc-switch-selected-icon-size: 12px;
+  --mdc-switch-handle-width: 14px;
+  --mdc-switch-handle-height: 14px;
+  --mdc-switch-state-layer-size: 36px;
 }
 
 .curp {
@@ -454,10 +546,8 @@ body.printing {
 
 .greytext, a.greytext {
   color: $greytext;
-  @if $use-dark-theme {
-    @include dark {
-      color: $greytext-dark;
-    }
+  @include dark {
+    color: $greytext-dark;
   }
 }
 
@@ -465,11 +555,12 @@ textarea {
   box-sizing: content-box;
 }
 
-.mat-option.full-option {
+.mat-mdc-option.full-option {
   white-space: normal;
   height: auto !important;
   padding: 13px 16px;
   line-height: inherit !important;
+  /* TODO(mdc-migration): The following rule targets internal classes of option that may no longer apply for the MDC version.*/
   .mat-option-text {
     overflow: visible;
     text-overflow: initial;
@@ -478,14 +569,18 @@ textarea {
 }
 
 .multilinecb {
+  /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
+  /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
   .mat-checkbox-layout {
     display: flex;
     white-space: normal;
     align-items: flex-start;
+    /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
     .mat-checkbox-label {
       line-height: 1.3;
       flex: 1;
     }
+    /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
     .mat-checkbox-inner-container {
       margin:0 8px 0 0;
     }
@@ -500,13 +595,13 @@ textarea {
   white-space: pre-wrap;
 }
 
-@if $use-dark-theme {
-  .mat-menu-panel {
+
+  .mat-mdc-menu-panel {
     @include dark {
       color: white;
     }
   }
-}
+
 
 .mat-drawer-inner-container {
   @include phone {
@@ -516,14 +611,14 @@ textarea {
   }
 }
 
-.mat-tooltip {
+.mat-mdc-tooltip {
   white-space: pre-wrap;
   body & {
     max-width: 400px;
   }
 }
 
-.mat-snack-bar-container {
+.mat-mdc-snack-bar-container {
   &.error {
     background: mat-color($app-warn, A700);
     color:white;
@@ -550,17 +645,17 @@ textarea {
     padding-top: 10px;
     padding-bottom: 10px;
 
-    .mat-dialog-container {
+    .mat-mdc-dialog-container {
       height: fill-available;
     }
 
-    .mat-dialog-title {
+    .mat-mdc-dialog-title {
       flex: 0 0 auto;
       &.ss-nd {
         display: none;
       }
     }
-    .mat-dialog-content {
+    .mat-mdc-dialog-content {
       max-height: none;
     }
   }
@@ -568,16 +663,18 @@ textarea {
 
 @include phone {
   body {
+    /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
+    /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
     .mat-checkbox-layout {
       display: flex;
       white-space: normal;
       align-items: flex-start;
-
+      /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
       .mat-checkbox-label {
         line-height: 1.3;
         flex: 1;
       }
-
+      /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
       .mat-checkbox-inner-container {
         margin: 0 8px 0 0;
       }
@@ -606,14 +703,18 @@ textarea {
 }
 
 .multiline {
+  /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
+  /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
   .mat-checkbox-layout {
     display: flex;
     white-space: normal;
     align-items: flex-start;
+    /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
     .mat-checkbox-label {
       line-height: 1.3;
       flex: 1;
     }
+    /* TODO(mdc-migration): The following rule targets internal classes of checkbox that may no longer apply for the MDC version.*/
     .mat-checkbox-inner-container {
       margin:0 8px 0 0;
     }
@@ -643,7 +744,7 @@ textarea {
   z-index: 101;
   left: 0;
   right: 0;
-  &, &.mat-progress-bar {
+  &, &.mat-mdc-progress-bar {
     @include desktop {
       position: absolute;
       top: 0;
@@ -695,29 +796,31 @@ textarea {
   }
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version.*/
 mat-progress-bar {
   >div {
     height: 100%;
   }
 }
 
-.remove, .rem, .btn, .mat-nav-list a.btn {
+.remove.mat-mdc-icon-button, .rem.mat-mdc-icon-button, .btn.mat-mdc-icon-button, .mat-nav-list a.btn {
   color: map-get($foreground, disabled-button);
-  @if $use-dark-theme {
+
     @include dark {
       color: map-get($dark-foreground, disabled-button);
     }
-  }
+
   &:hover {
     color: mat-color($app-accent, 800)
   }
 }
 
 body {
-  .mat-mini-fab, .mat-icon-button {
+  .mat-mdc-mini-fab, .mat-mdc-icon-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    /* TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.*/
     >.mat-button-wrapper {
       display: block;
       margin: 0 auto;
@@ -727,5 +830,22 @@ body {
         justify-content: center;
       }
     }
+  }
+}
+
+.f.flex1.cnt {
+  height: 24px;
+}
+
+.mat-mdc-form-field {
+  .mat-icon.mat-icon-inline {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.mdc-icon-button {
+  .mat-icon.mat-icon-inline {
+    font-size: 16px;
   }
 }
