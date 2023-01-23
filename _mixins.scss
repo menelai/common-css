@@ -1,4 +1,6 @@
 $breakpoint: 800px;
+$darkModeClass: 'dark-mode' !default;
+$lightModeClass: 'light-mode' !default;
 
 @mixin phone {
   @media screen and (max-width: #{$breakpoint}) {
@@ -13,14 +15,23 @@ $breakpoint: 800px;
 }
 
 @mixin dark {
-  @media (prefers-color-scheme: dark) {
+  .#{$darkModeClass} {
     @content;
   }
 }
 
 @mixin light {
-  @media (prefers-color-scheme: light) {
+  .#{$lightModeClass} {
     @content;
+  }
+}
+
+@mixin allColorModes() {
+  @include dark {
+    @content
+  }
+  @include light {
+    @content
   }
 }
 

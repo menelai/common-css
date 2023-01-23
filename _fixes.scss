@@ -26,25 +26,28 @@ $app-yellow:  mat-palette($mat-amber) !default;
   --mdc-typography-body1-letter-spacing: normal;
 }
 
-.mat-mdc-form-field-infix {
-  min-height: unset;
-}
+@include allColorModes {
+  .mat-mdc-form-field-infix {
+    min-height: unset;
+  }
 
-.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
 
-.mat-mdc-form-field .mat-mdc-text-field-wrapper .mat-mdc-floating-label {
-  top: 18px;
-}
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 
-.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
-  --mat-mdc-form-field-label-transform: translateY( -24.75px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75));
-}
+  .mat-mdc-form-field .mat-mdc-text-field-wrapper .mat-mdc-floating-label {
+    top: 18px;
+  }
 
-.mdc-line-ripple, .mat-mdc-form-field-flex {
-  position: static;
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+    --mat-mdc-form-field-label-transform: translateY(-24.75px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75));
+  }
+
+  .mdc-line-ripple, .mat-mdc-form-field-flex {
+    position: static;
+  }
 }
 
 @include dark {
@@ -131,13 +134,16 @@ html, body {
   box-sizing: border-box;
 }
 
-.mat-mdc-icon-button.mat-mdc-button-base {
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  .mat-mdc-button-touch-target {
+@include allColorModes {
+  .mat-mdc-icon-button.mat-mdc-button-base {
     width: 40px;
     height: 40px;
+    padding: 8px;
+
+    .mat-mdc-button-touch-target {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 
@@ -290,7 +296,7 @@ mat-toolbar {
   @include phone {
     width: 300px;
   }
-  background: mat-color($app-primary, 600);
+  background: mat-color($app-primary, 600) !important;
   .mat-mdc-list .mat-mdc-list-item, .mat-mdc-nav-list .mat-mdc-list-item, .mat-mdc-selection-list .mat-mdc-list-item {
     color: rgba(white, 0.77);
 
@@ -353,7 +359,7 @@ mat-toolbar {
 
   ::-webkit-scrollbar-track {
     background: #b1b3b5;
-    @include dark {
+    .#{$darkModeClass} & {
       background: black;
     }
   }
@@ -393,7 +399,7 @@ mat-toolbar {
   }
 }
 
-body {
+@include allColorModes {
   .mdc-list-item.mdc-list-item--with-one-line {
     height: auto;
   }
@@ -489,7 +495,7 @@ body.printing {
   .active {
     font-weight: 500;
     background: map-get($background, background);
-    @include dark {
+    .#{$darkModeClass} & {
       background: map-get($dark-background, background);
     }
     &:after {
@@ -517,20 +523,24 @@ body.printing {
   }
 }
 
-.b18.mat-mdc-icon-button {
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
-  padding: 0;
-  .mat-icon {
+@include allColorModes {
+  .b18.mat-mdc-icon-button.mat-mdc-button-base {
     width: 18px;
     height: 18px;
     line-height: 18px;
-    font-size: 15px;
-  }
-  .mat-mdc-button-touch-target {
-    width: 18px;
-    height: 18px;
+    padding: 0;
+
+    .mat-icon {
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      font-size: 15px;
+    }
+
+    .mat-mdc-button-touch-target {
+      width: 18px;
+      height: 18px;
+    }
   }
 }
 
@@ -550,7 +560,7 @@ body.printing {
 
 .greytext, a.greytext {
   color: $greytext;
-  @include dark {
+  .#{$darkModeClass} & {
     color: $greytext-dark;
   }
 }
@@ -600,11 +610,11 @@ textarea {
 }
 
 
-  .mat-mdc-menu-panel {
-    @include dark {
-      color: white;
-    }
+.mat-mdc-menu-panel {
+  .#{$darkModeClass} & {
+    color: white;
   }
+}
 
 
 .mat-drawer-inner-container {
@@ -810,9 +820,9 @@ mat-progress-bar {
 .remove.mat-mdc-icon-button, .rem.mat-mdc-icon-button, .btn.mat-mdc-icon-button, .mat-nav-list a.btn {
   color: map-get($foreground, disabled-button);
 
-    @include dark {
-      color: map-get($dark-foreground, disabled-button);
-    }
+  .#{$darkModeClass} & {
+    color: map-get($dark-foreground, disabled-button);
+  }
 
   &:hover {
     color: mat-color($app-accent, 800)
