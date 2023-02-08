@@ -634,13 +634,13 @@ textarea {
 
 .mat-mdc-snack-bar-container {
   &.error {
-    background: mat-color($app-warn, A700);
-    color:white;
+    --mdc-snackbar-container-color: #{mat-color($app-warn, A700)};
+    --mdc-snackbar-supporting-text-color: white;
   }
 
   &.warning {
-    background: mat-color($app-yellow, A700);
-    color:white;
+    --mdc-snackbar-container-color: #{mat-color($app-yellow, A700)};
+    --mdc-snackbar-supporting-text-color: white;
   }
 }
 
