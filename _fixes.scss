@@ -24,6 +24,42 @@ $app-yellow:  mat-palette($mat-amber) !default;
   --mdc-typography-button-letter-spacing: normal;
   --mdc-typography-subtitle1-letter-spacing: normal;
   --mdc-typography-body1-letter-spacing: normal;
+  --mdc-typography-body1-font-size: 14px;
+  --mdc-typography-subtitle1-font-size: 14px;
+}
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-subhead-tracking: normal;
+  --mdc-dialog-supporting-text-size: 14px;
+  --mdc-dialog-supporting-text-tracking: normal;
+}
+
+.mat-mdc-list-base {
+  --mdc-list-list-item-supporting-text-tracking: normal;
+  --mdc-list-list-item-trailing-supporting-text-tracking: normal;
+  --mdc-list-list-item-label-text-tracking: normal;
+}
+
+.mat-mdc-tooltip {
+  --mdc-plain-tooltip-supporting-text-tracking: normal;
+}
+
+body {
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-text-field__input {
+    display: flex;
+  }
+
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control.mdc-text-field__input[type=color] {
+    height: 24px;
+  }
+}
+
+.mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  font-size: 14px;
+}
+
+.mat-mdc-list-item .mdc-list-item__primary-text {
+  font: inherit;
 }
 
 @include allColorModes {
@@ -33,12 +69,12 @@ $app-yellow:  mat-palette($mat-amber) !default;
 
 
   .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
 
   .mat-mdc-form-field .mat-mdc-text-field-wrapper .mat-mdc-floating-label {
-    top: 18px;
+    top: 17px;
   }
 
   .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
@@ -861,5 +897,27 @@ body {
 .mdc-icon-button {
   .mat-icon.mat-icon-inline {
     font-size: 16px;
+  }
+}
+
+.h36 {
+  &.mat-mdc-icon-button.mat-mdc-button-base {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+}
+
+.mat-mdc-form-field-icon-suffix {
+  .mat-mdc-icon-button.mat-mdc-button-base {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+
+    .mat-icon {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+    }
   }
 }
