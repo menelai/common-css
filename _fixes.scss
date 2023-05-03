@@ -74,11 +74,11 @@ body {
   }
 
   .mat-mdc-form-field .mat-mdc-text-field-wrapper .mat-mdc-floating-label {
-    top: 17px;
+    top: 16px;
   }
 
   .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
-    --mat-mdc-form-field-label-transform: translateY(-24.75px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75));
+    --mat-mdc-form-field-label-transform: translateY(-22.75px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75));
   }
 
   .mdc-line-ripple, .mat-mdc-form-field-flex {
