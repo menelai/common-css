@@ -62,7 +62,7 @@ body {
   font: inherit;
 }
 
-@include allColorModes {
+.#{$darkModeClass}, .#{$lightModeClass} {
   .mat-mdc-form-field-infix {
     min-height: unset;
   }
@@ -86,7 +86,7 @@ body {
   }
 }
 
-@include dark {
+.#{$darkModeClass} {
   .mdc-text-field .mdc-text-field__input {
     caret-color: map-get($dark-foreground, base);
   }
@@ -170,7 +170,7 @@ html, body {
   box-sizing: border-box;
 }
 
-@include allColorModes {
+.#{$darkModeClass}, .#{$lightModeClass} {
   .mat-mdc-icon-button.mat-mdc-button-base {
     width: 40px;
     height: 40px;
@@ -435,7 +435,7 @@ mat-toolbar {
   }
 }
 
-@include allColorModes {
+.#{$darkModeClass}, .#{$lightModeClass} {
   .mdc-list-item.mdc-list-item--with-one-line {
     height: auto;
   }
@@ -559,7 +559,7 @@ body.printing {
   }
 }
 
-@include allColorModes {
+.#{$darkModeClass}, .#{$lightModeClass} {
   .b18.mat-mdc-icon-button.mat-mdc-button-base {
     width: 18px;
     height: 18px;
@@ -605,16 +605,13 @@ textarea {
   box-sizing: content-box;
 }
 
-.mat-mdc-option.full-option {
-  white-space: normal;
-  height: auto !important;
-  padding: 13px 16px;
-  line-height: inherit !important;
-  /* TODO(mdc-migration): The following rule targets internal classes of option that may no longer apply for the MDC version.*/
-  .mat-option-text {
-    overflow: visible;
-    text-overflow: initial;
-
+body {
+  .mat-mdc-option {
+    white-space: normal;
+    min-height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: inherit !important;
   }
 }
 
