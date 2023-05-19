@@ -26,6 +26,8 @@ $app-yellow:  mat-palette($mat-amber) !default;
   --mdc-typography-body1-letter-spacing: normal;
   --mdc-typography-body1-font-size: 14px;
   --mdc-typography-subtitle1-font-size: 14px;
+  --mdc-typography-body2-letter-spacing: normal;
+  --mdc-typography-subtitle2-letter-spacing: normal;
 }
 
 .mat-mdc-dialog-container {
@@ -42,6 +44,10 @@ $app-yellow:  mat-palette($mat-amber) !default;
 
 .mat-mdc-tooltip {
   --mdc-plain-tooltip-supporting-text-tracking: normal;
+}
+
+.mat-mdc-tab-header {
+  --mat-tab-header-label-text-letter-spacing: normal;
 }
 
 body {
@@ -185,7 +191,7 @@ html, body {
 
 body {
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0;
   font-family: 'Roboto', sans-serif;
 
@@ -275,7 +281,7 @@ body {
   }
 
   .mat-mdc-card-title {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .mat-expansion-panel-body, .mat-expansion-panel-header {
@@ -304,7 +310,7 @@ body {
   }
   /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
   .mat-mdc-card-subtitle, .mat-mdc-card-content, .mat-expansion-panel-content, .mat-expansion-panel-header, .mat-mdc-dialog-title, .mat-tab-label, .mat-mdc-tab-link {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
   }
   /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.*/
