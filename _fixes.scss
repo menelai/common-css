@@ -924,3 +924,45 @@ body {
     }
   }
 }
+
+:root {
+  --mdc-typography-headline6-line-height: 1.5;
+}
+.#{$lightModeClass}, .#{$darkModeClass} {
+  .mat-mdc-table .mdc-data-table__row {
+    height: auto;
+  }
+}
+
+body {
+  mat-cell, mat-header-cell, mat-footer-cell {
+    align-items: flex-start;
+  }
+  .mat-mdc-header-cell {
+    font-size: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height: auto;
+  }
+}
+
+.mat-icon.mat-icon-inline {
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.mdc-icon-button .mat-icon.mat-icon-inline {
+  display: block;
+  height: 16px;
+  width: 16px;
+  line-height: 1;
+}
+
+.mat-mdc-dialog-container {
+  @include light {
+    --mdc-dialog-supporting-text-color: black;
+  }
+  @include dark {
+    --mdc-dialog-supporting-text-color: white;
+  }
+}
