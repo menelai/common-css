@@ -195,6 +195,10 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
 
+  .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+    pointer-events: none;
+  }
+
   @supports (top: max(0%)) {
     .mdc-text-field--outlined {
       padding-right: max(8px, var(--mdc-shape-small, 4px));
@@ -210,8 +214,19 @@ body {
     }
   }
 
-  .mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline .mdc-notched-outline__notch {
-    max-width: calc(100% - 8px);
+  .mat-mdc-form-field-type-mat-select.mat-form-field-appearance-outline {
+    .mdc-notched-outline {
+      &:not(.mdc-notched-outline--notched) {
+        .mdc-notched-outline__notch {
+          max-width: calc(100% - 24px);
+        }
+      }
+      &.mdc-notched-outline--notched {
+        .mdc-notched-outline__notch {
+          max-width: calc(100% - 8px);
+        }
+      }
+    }
   }
 
   .mat-mdc-tooltip {
