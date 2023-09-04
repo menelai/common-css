@@ -32,6 +32,7 @@ $app-yellow:  mat-palette($mat-amber) !default;
 
 html {
   --mat-form-field-container-text-size: 14px;
+  --mat-form-field-container-text-tracking: normal;
   --mat-select-trigger-text-tracking: normal;
   --mat-menu-item-label-text-size: 14px;
   --mat-menu-item-label-text-tracking: normal;
@@ -39,6 +40,8 @@ html {
   --mdc-outlined-text-field-label-text-size: 14px;
   --mdc-outlined-text-field-label-text-tracking: normal;
   --mat-toolbar-title-text-tracking: normal;
+  --mat-option-label-text-size: 14px;
+  --mat-option-label-text-tracking: normal;
 }
 
 .mat-mdc-dialog-container {
@@ -344,6 +347,13 @@ body {
   .mat-tab-label {
     padding: 0 16px;
   }
+}
+
+.mat-mdc-card {
+  --mat-card-title-text-line-height: 1.5;
+  --mat-card-title-text-tracking: normal;
+  --mat-card-subtitle-text-line-height: 1.5;
+  --mat-card-subtitle-text-tracking: normal;
 }
 
 h2 {
