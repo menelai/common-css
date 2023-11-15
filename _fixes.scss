@@ -1,5 +1,4 @@
 @use "@angular/material" as mat;
-@import '@angular/material/theming';
 @import "mixins";
 
 $app-primary: mat.define-palette(mat.$light-blue-palette, 900, 700, 900) !default;
@@ -18,7 +17,7 @@ $background: map-get($app-theme, background);
 $dark-foreground: map-get($app-dark-theme, foreground);
 $dark-background: map-get($app-dark-theme, background);
 
-$app-yellow:  mat-palette($mat-amber) !default;
+$app-yellow:  mat.$amber-palette !default;
 
 :root {
   --mdc-typography-button-letter-spacing: normal;
@@ -375,7 +374,7 @@ mat-toolbar {
   @include phone {
     width: 300px;
   }
-  background: mat-color($app-primary, 600) !important;
+  background: mat.get-theme-color($app-theme, primary, 600) !important;
   .mat-mdc-list .mat-mdc-list-item, .mat-mdc-nav-list .mat-mdc-list-item, .mat-mdc-selection-list .mat-mdc-list-item {
     color: rgba(white, 0.77);
 
@@ -383,7 +382,7 @@ mat-toolbar {
       color:white;
       background: none;
       &:after {
-        background: mat-color($app-accent, 500);
+        background: mat.get-theme-color($app-theme, accent, 500);
       }
     }
   }
@@ -397,9 +396,9 @@ mat-toolbar {
   }
 
   .expanded {
-    background: mat-color($app-primary, 700);
+    background: mat.get-theme-color($app-theme, primary, 700);
     &:before {
-      background: mat-color($app-primary, 900);
+      background: mat.get-theme-color($app-theme, primary, 900);
     }
     .mat-mdc-nav-list {
       padding-top: 0;
@@ -584,7 +583,7 @@ body.printing {
       bottom: 0;
       width: 4px;
       top: 0;
-      background: mat-color($app-accent, 500);
+      background: mat.get-theme-color($app-theme, accent, 500);
     }
   }
 }
@@ -710,12 +709,12 @@ body {
 
 .mat-mdc-snack-bar-container {
   &.error {
-    --mdc-snackbar-container-color: #{mat-color($app-warn, A700)};
+    --mdc-snackbar-container-color: #{mat.get-theme-color($app-theme, warn, A700)};
     --mdc-snackbar-supporting-text-color: white;
   }
 
   &.warning {
-    --mdc-snackbar-container-color: #{mat-color($app-yellow, A700)};
+    --mdc-snackbar-container-color: #{mat.get-color-from-palette($app-yellow, A700)};
     --mdc-snackbar-supporting-text-color: white;
   }
 }
@@ -773,7 +772,7 @@ body {
 }
 
 .warn {
-  color: mat-color($app-yellow, 900);
+  color: mat.get-color-from-palette($app-yellow, 900);
 }
 
 .errored {
@@ -901,7 +900,7 @@ mat-progress-bar {
   }
 
   &:hover {
-    color: mat-color($app-accent, 800)
+    color: mat.get-theme-color($app-theme, accent, 800)
   }
 }
 
