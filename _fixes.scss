@@ -447,12 +447,14 @@ mat-toolbar {
   }
 }
 
-@include desktop {
+@-moz-document url-prefix() {
   * {
     scrollbar-color: $dark #b1b3b5;
     scrollbar-width: thin;
   }
+}
 
+@include desktop {
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
