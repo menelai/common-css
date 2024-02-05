@@ -41,10 +41,25 @@ html {
   --mat-toolbar-title-text-tracking: normal;
   --mat-option-label-text-size: 14px;
   --mat-option-label-text-tracking: normal;
+  --mdc-outlined-button-label-text-tracking: normal;
+  --mdc-filled-button-label-text-tracking: normal;
+  --mdc-text-button-label-text-tracking: normal;
+  --mdc-protected-button-label-text-tracking: normal;
+
+  --mat-table-header-headline-tracking: normal;
+  --mat-table-row-item-label-text-tracking: normal;
+  --mat-table-footer-supporting-text-tracking: normal;
+
+  --mdc-list-list-item-label-text-size: 14px;
+  --mdc-list-list-item-label-text-tracking: normal;
+
+  --mat-optgroup-label-text-line-height: inherit;
+  --mat-optgroup-label-text-size: 14px;
+  --mat-optgroup-label-text-tracking: normal;
 }
 
 .mat-mdc-dialog-container {
-  --mdc-dialog-subhead-tracking: normal;
+  --mdc-dialog-subhead-tracking: inherit;
   --mdc-dialog-supporting-text-size: 14px;
   --mdc-dialog-supporting-text-tracking: normal;
 }
@@ -62,6 +77,15 @@ html {
 .mat-mdc-tab-header {
   --mat-tab-header-label-text-letter-spacing: normal;
   --mat-tab-header-label-text-tracking: normal;
+}
+
+:root {
+  --mdc-typography-headline6-line-height: 1.5;
+}
+.#{$lightModeClass}, .#{$darkModeClass} {
+  .mat-mdc-table .mdc-data-table__row {
+    height: auto;
+  }
 }
 
 body {
