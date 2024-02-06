@@ -174,11 +174,11 @@ body {
       border-color: map-get($dark-foreground, base);
     }
   }
-
-  .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label--float-above {
     color: map-get($dark-foreground, base);
   }
-  .mat-mdc-input-element {
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input {
     caret-color: white;
   }
 
