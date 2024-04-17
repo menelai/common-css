@@ -27,6 +27,8 @@ $app-yellow:  mat.$amber-palette !default;
   --mdc-typography-subtitle1-font-size: 14px;
   --mdc-typography-body2-letter-spacing: normal;
   --mdc-typography-subtitle2-letter-spacing: normal;
+
+  --common-css-toolbar-height: 56px;
 }
 
 html {
@@ -292,7 +294,7 @@ body {
 
     .mat-toolbar {
       + .mat-drawer-container {
-        padding-top: 56px;
+        padding-top: var(--common-css-toolbar-height);
       }
     }
   }
@@ -308,7 +310,7 @@ body {
   .mat-drawer {
     @include phone {
       position: fixed;
-      top: 56px;
+      top: var(--common-css-toolbar-height);
       bottom: 0;
       left: 0;
     }
@@ -388,7 +390,7 @@ h2 {
 mat-toolbar {
   z-index: 2;
   &.mat-toolbar-single-row {
-    height: 56px;
+    height: var(--common-css-toolbar-height);
   }
 }
 
@@ -866,7 +868,7 @@ body {
     }
     @include phone {
       position: fixed;
-      top: 56px;
+      top: var(--common-css-toolbar-height);
     }
   }
 }
