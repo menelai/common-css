@@ -1,11 +1,11 @@
 @use "@angular/material" as mat;
 @import "mixins";
 
-$app-primary: mat.define-palette(mat.$light-blue-palette, 900, 700, 900) !default;
-$app-accent:  mat.define-palette(mat.$lime-palette, 500, 100, 700) !default;
-$app-warn:    mat.define-palette(mat.$red-palette) !default;
+$app-primary: mat.m2-define-palette(mat.$light-blue-palette, 900, 700, 900) !default;
+$app-accent:  mat.m2-define-palette(mat.$lime-palette, 500, 100, 700) !default;
+$app-warn:    mat.m2-define-palette(mat.$red-palette) !default;
 
-$app-dark-theme: mat.define-dark-theme($app-primary, $app-accent, $app-warn) !default;
+$app-dark-theme: mat.m2-define-dark-theme($app-primary, $app-accent, $app-warn) !default;
 
 $greytext: #535b63 !default;
 $greytext-dark: #cbcbcb !default;
@@ -17,7 +17,38 @@ $background: map-get($app-theme, background);
 $dark-foreground: map-get($app-dark-theme, foreground);
 $dark-background: map-get($app-dark-theme, background);
 
-$app-yellow:  mat.$amber-palette !default;
+$app-yellow: (
+  50: #fff8e1,
+  100: #ffecb3,
+  200: #ffe082,
+  300: #ffd54f,
+  400: #ffca28,
+  500: #ffc107,
+  600: #ffb300,
+  700: #ffa000,
+  800: #ff8f00,
+  900: #ff6f00,
+  A100: #ffe57f,
+  A200: #ffd740,
+  A400: #ffc400,
+  A700: #ffab00,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $dark-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
 
 :root {
   --mdc-typography-button-letter-spacing: normal;
@@ -27,8 +58,6 @@ $app-yellow:  mat.$amber-palette !default;
   --mdc-typography-subtitle1-font-size: 14px;
   --mdc-typography-body2-letter-spacing: normal;
   --mdc-typography-subtitle2-letter-spacing: normal;
-
-  --common-css-toolbar-height: 56px;
 }
 
 html {
@@ -58,8 +87,6 @@ html {
   --mat-optgroup-label-text-line-height: inherit;
   --mat-optgroup-label-text-size: 14px;
   --mat-optgroup-label-text-tracking: normal;
-
-  --mdc-extended-fab-label-text-tracking: normal;
 }
 
 .mat-mdc-dialog-container {
@@ -296,7 +323,7 @@ body {
 
     .mat-toolbar {
       + .mat-drawer-container {
-        padding-top: var(--common-css-toolbar-height);
+        padding-top: 56px;
       }
     }
   }
@@ -312,7 +339,7 @@ body {
   .mat-drawer {
     @include phone {
       position: fixed;
-      top: var(--common-css-toolbar-height);
+      top: 56px;
       bottom: 0;
       left: 0;
     }
@@ -392,7 +419,7 @@ h2 {
 mat-toolbar {
   z-index: 2;
   &.mat-toolbar-single-row {
-    height: var(--common-css-toolbar-height);
+    height: 56px;
   }
 }
 
@@ -744,7 +771,7 @@ body {
   }
 
   &.warning {
-    --mdc-snackbar-container-color: #{mat.get-color-from-palette($app-yellow, A700)};
+    --mdc-snackbar-container-color: #{mat.m2-get-color-from-palette($app-yellow, A700)};
     --mdc-snackbar-supporting-text-color: white;
   }
 }
@@ -802,7 +829,7 @@ body {
 }
 
 .warn {
-  color: mat.get-color-from-palette($app-yellow, 900);
+  color: mat.m2-get-color-from-palette($app-yellow, 900);
 }
 
 .errored {
@@ -870,7 +897,7 @@ body {
     }
     @include phone {
       position: fixed;
-      top: var(--common-css-toolbar-height);
+      top: 56px;
     }
   }
 }
