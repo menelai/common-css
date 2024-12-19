@@ -323,7 +323,7 @@ body {
 
     .mat-toolbar {
       + .mat-drawer-container {
-        padding-top: 56px;
+        padding-top: 48px;
       }
     }
   }
@@ -339,7 +339,7 @@ body {
   .mat-drawer {
     @include phone {
       position: fixed;
-      top: 56px;
+      top: 48px;
       bottom: 0;
       left: 0;
     }
@@ -419,7 +419,7 @@ h2 {
 mat-toolbar {
   z-index: 2;
   &.mat-toolbar-single-row {
-    height: 56px;
+    height: 48px;
   }
 }
 
@@ -897,7 +897,7 @@ body {
     }
     @include phone {
       position: fixed;
-      top: 56px;
+      top: 48px;
     }
   }
 }
