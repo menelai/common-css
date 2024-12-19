@@ -784,12 +784,12 @@ body {
 
 .cdk-overlay-pane {
   @include phone {
-    max-width: calc(100vw - 32px) !important;
-    // max-height: fill-available;
-    // height: auto;
-    margin-top: 0 !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    &:not([style*='margin-bottom']) {
+      max-width: calc(100vw - 32px) !important;
+      margin-top: 0 !important;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
 
     .mat-mdc-dialog-container {
       height: fill-available;
