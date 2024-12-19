@@ -782,14 +782,12 @@ body {
   }
 }
 
-.cdk-overlay-pane {
+.cdk-overlay-pane.mat-mdc-dialog-panel {
   @include phone {
-    &:not([style*='margin-bottom']) {
-      max-width: calc(100vw - 32px) !important;
-      margin-top: 0 !important;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
+    max-width: calc(100vw - 32px) !important;
+    margin-top: 0 !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     .mat-mdc-dialog-container {
       height: fill-available;
