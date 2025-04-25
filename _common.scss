@@ -1,4 +1,4 @@
-@import "mixins";
+@use "mixins" as m;
 $maxPixels: 40 !default;
 $maxGap: 20 !default;
 
@@ -296,7 +296,7 @@ p {
 }
 
 
-@include phone {
+@include m.phone {
 
   .ss-w {
     flex-wrap: wrap;
@@ -427,7 +427,7 @@ p {
 }
 
 
-@include desktop {
+@include m.desktop {
 
   .ws-w {
     flex-wrap: wrap;
