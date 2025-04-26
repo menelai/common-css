@@ -51,6 +51,11 @@ body {
     align-items: center;
     .mat-icon {
       display: block;
+      height: auto;
+
+      &.mat-icon-inline {
+        font-size: 16px;
+      }
     }
   }
 
