@@ -7,13 +7,13 @@ $dark: #2f4050 !default;
   --mat-toolbar-mobile-height: 48px;
   --mat-form-field-container-height: 36px;
   --mat-form-field-container-vertical-padding: 6px;
-  --mdc-outlined-text-field-container-shape: 4px;
+  --mat-outlined-text-field-container-shape: 4px;
   --mat-sidenav-container-shape: 0;
   --mat-sys-body-medium-tracking: normal;
-  --mdc-dialog-supporting-text-size: 1em;
-  --mdc-dialog-supporting-text-tracking: normal;
+  --mat-dialog-supporting-text-size: 1em;
+  --mat-dialog-supporting-text-tracking: normal;
   --mat-form-field-subscript-text-size: 12px;
-  --mdc-dialog-subhead-tracking: normal;
+  --mat-dialog-subhead-tracking: normal;
   --mat-dialog-headline-padding: 16px 24px 8px;
   --mat-dialog-container-max-width: 100vw;
   --mat-dialog-container-elevation-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
@@ -164,7 +164,7 @@ mat-toolbar {
 
 .mainmenu {
   --mat-list-active-indicator-shape: 0;
-  --mdc-list-list-item-one-line-container-height: auto;
+  --mat-list-list-item-one-line-container-height: auto;
 
   width:240px;
   @include m.phone {
