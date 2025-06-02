@@ -1,6 +1,6 @@
 {
   "name": "@kovalenko/common-css",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "scripts": {
     "prepare": "husky install"
   },

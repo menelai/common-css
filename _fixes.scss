@@ -452,32 +452,32 @@ mat-select + mat-progress-spinner {
 }
 
 .mat-slide-toggle-small {
-  --mdc-switch-unselected-icon-size: 12px;
-  --mdc-switch-selected-icon-size: 12px;
-  --mat-switch-track-outline-width: 0;
-  --mdc-switch-track-height: 10px;
-  --mdc-switch-track-width: 24px;
-  --mat-switch-with-icon-handle-size: 18px;
-  --mat-switch-pressed-handle-size: 20px;
-  --mdc-switch-handle-width: 36px;
-  --mat-switch-selected-with-icon-handle-horizontal-margin: 0 8px;
-  --mat-switch-selected-pressed-handle-horizontal-margin: 0 7px;
-  --mat-switch-unselected-with-icon-handle-horizontal-margin: 0 -4px;
-  --mat-switch-unselected-pressed-handle-horizontal-margin: 0 -5px;
+  --mat-slide-toggle-unselected-icon-size: 12px;
+  --mat-slide-toggle-selected-icon-size: 12px;
+  --mat-slide-toggle-track-outline-width: 0;
+  --mat-slide-toggle-track-height: 10px;
+  --mat-slide-toggle-track-width: 24px;
+  --mat-slide-toggle-with-icon-handle-size: 18px;
+  --mat-slide-toggle-pressed-handle-size: 20px;
+  --mat-slide-toggle-handle-width: 36px;
+  --mat-slide-toggle-selected-with-icon-handle-horizontal-margin: 0 8px;
+  --mat-slide-toggle-selected-pressed-handle-horizontal-margin: 0 7px;
+  --mat-slide-toggle-unselected-with-icon-handle-horizontal-margin: 0 -4px;
+  --mat-slide-toggle-unselected-pressed-handle-horizontal-margin: 0 -5px;
 
-  --mdc-switch-selected-track-color: var(--mat-sys-primary-fixed-dim);
-  --mdc-switch-selected-hover-track-color: var(--mat-sys-primary-fixed-dim);
-  --mdc-switch-selected-focus-track-color: var(--mat-sys-primary-fixed-dim);
-  --mdc-switch-selected-pressed-track-color: var(--mat-sys-primary-fixed-dim);
+  --mat-slide-toggle-selected-track-color: var(--mat-sys-primary-fixed-dim);
+  --mat-slide-toggle-selected-hover-track-color: var(--mat-sys-primary-fixed-dim);
+  --mat-slide-toggle-selected-focus-track-color: var(--mat-sys-primary-fixed-dim);
+  --mat-slide-toggle-selected-pressed-track-color: var(--mat-sys-primary-fixed-dim);
 
-  --mdc-switch-selected-handle-color: var(--mat-sys-on-primary-container);
-  --mdc-switch-selected-hover-handle-color: var(--mat-sys-on-primary-container);
-  --mdc-switch-selected-focus-handle-color: var(--mat-sys-on-primary-container);
-  --mdc-switch-selected-pressed-handle-color: var(--mat-sys-on-primary-container);
-  --mdc-switch-selected-icon-color: var(--mat-sys-on-primary);
+  --mat-slide-toggle-selected-handle-color: var(--mat-sys-on-primary-container);
+  --mat-slide-toggle-selected-hover-handle-color: var(--mat-sys-on-primary-container);
+  --mat-slide-toggle-selected-focus-handle-color: var(--mat-sys-on-primary-container);
+  --mat-slide-toggle-selected-pressed-handle-color: var(--mat-sys-on-primary-container);
+  --mat-slide-toggle-selected-icon-color: var(--mat-sys-on-primary);
 
-  --mdc-switch-disabled-selected-handle-color: var(--mat-sys-on-surface-variant);
-  --mdc-switch-disabled-selected-icon-color: var(--mat-sys-on-primary);
+  --mat-slide-toggle-disabled-selected-handle-color: var(--mat-sys-on-surface-variant);
+  --mat-slide-toggle-disabled-selected-icon-color: var(--mat-sys-on-primary);
 }
 
 .no-shadow {
